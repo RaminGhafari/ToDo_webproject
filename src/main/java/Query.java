@@ -6,4 +6,7 @@ public class Query {
 	static String updateShow = "SELECT * FROM ToDoTable WHERE id=?";
 	static String delete = "DELETE FROM ToDoTable where id=?";
 	static String deleteShow = "SELECT * FROM ToDoTable WHERE id<>?";
+	static String searchID = "SELECT * FROM ToDoTable WHERE id=?";
+	static String searchPriority = "SELECT * FROM ToDoTable WHERE PRIORITY=?";
+	static String searchCategory = "SELECT * FROM ToDoTable WHERE CATEGORY=?";
 }
