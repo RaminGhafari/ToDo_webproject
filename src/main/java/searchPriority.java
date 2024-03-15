@@ -66,6 +66,7 @@ public class searchPriority extends HttpServlet {
 			 pw.println("<a href=/webproject/index.html>Home</a>");
 			 		
 			 pw.println("<div style='width:600px;margin:auto;margin-top:50px'>");
+			 pw.println("<h2 class='bg-primary text-center text-light card-header'>Searched by Priority</h2>");
 			 pw.println("<table class='table table-hover table-striped'>");
 			 pw.println("<tr>");
 			 pw.println("<th>id</th>");

@@ -27,12 +27,17 @@
 	</style>
 
 </head>
-
+<a href="index.html">Home</a> |
+<a href="search.html">Search</a> |
+<a href="insert.html">Insert</a> | 
+<a href="show">Show</a> |
+<a href="update.html">Update</a> |
+<a href="delete.html">Delete</a>
 <body class="container-fluid">
-<a href="index.html">Home</a>
+
 	<div class="card" id="div1">
 		
-		<h2 class="bg-primary text-center text-light card-header">ToDo Web App</h2>
+		<h2 class="bg-primary text-center text-light card-header">Insert a New Task</h2>
 		
 		<form class="form" action="insert" method="post">
 			<table class="table table-hover table-striped">
@@ -56,10 +61,10 @@
 					<td>Priority</td>
 					<td><select name="priority">
 							<option value="" selected="selected">Select</option>
-							<option value="M">M - Must do</option>
-							<option value="S">S - Should do</option>
-							<option value="C">C - Could do</option>
-							<option value="W">W - Won't do</option>
+							<option value="Must do">Must do</option>
+							<option value="Should do">Should do</option>
+							<option value="Could do">Could do</option>
+							<option value="Wont' do">Won't do</option>
 						</select></td>
 				</tr>
 				
@@ -67,19 +72,19 @@
 					<td>Category</td>
 					<td><select name="category">
 							<option value="" selected="selected">Select</option>
-							<option value="P">P - Personal</option>
-							<option value="W">W - Work</option>
-							<option value="L">L - Learning</option>
-							<option value="C">C - Chores</option>
-							<option value="S">S - Shopping</option>
+							<option value="Personal">Personal</option>
+							<option value="Work">Work</option>
+							<option value="Learning">Learning</option>
+							<option value="Chores">Chores</option>
+							<option value="Shopping">Shopping</option>
 						</select></td>
 				</tr>
 
 				<tr>
 					<td>Task Status</td>
-					<td><input type="radio" name="status" value="notStarted"> Not Started <br>
-						<input type="radio" name="status" value="inProgress"> In Progress <br>
-						<input type="radio" name="status" value="completed"> Completed
+					<td><input type="radio" name="status" value="Not Started"> Not Started <br>
+						<input type="radio" name="status" value="In Progress"> In Progress <br>
+						<input type="radio" name="status" value="Completed"> Completed
 					</td>
 				</tr>
 

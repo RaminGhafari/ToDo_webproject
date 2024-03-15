@@ -46,8 +46,57 @@ public class update extends HttpServlet {
 	        DBConnectionGhafari.getDBConnection();
 	        connection = DBConnectionGhafari.connection;
 	        
+	        String queryShow = Query.searchID;
+	        PreparedStatement preparedStatement = connection.prepareStatement(queryShow);
+
+			preparedStatement.setInt(1, id);
+
+			ResultSet rs = preparedStatement.executeQuery();
+					
+			pw.println("<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css\">\r\n"
+							+ "\r\n"
+							+ "<!-- jQuery library -->\r\n"
+							+ "<script src=\"https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js\"></script>\r\n"
+							+ "\r\n"
+							+ "<!-- Popper JS -->\r\n"
+							+ "<script src=\"https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js\"></script>\r\n"
+							+ "\r\n"
+							+ "<!-- Latest compiled JavaScript -->\r\n"
+							+ "<script src=\"https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js\"></script>");
+					
+			        
+
+			 pw.println("<a href=/webproject/index.html>Home</a>");
+			 pw.println("<div style='width:600px;margin:auto;margin-top:50px'>");
+			 pw.println("<h2 class='bg-primary text-center text-light card-header'>Task Status</h2>");
+			 pw.println("<table class='table table-hover table-striped'>");
+			 pw.println("<tr>");
+			 pw.println("<th>id</th>");
+			 pw.println("<th>Title</th>");
+			 pw.println("<th>Date</th>");
+			 pw.println("<th>Priority</th>");
+			 pw.println("<th>Category</th>");
+			 pw.println("<th>Status</th>");
+			 pw.println("</tr>");
+			   		
+			 while(rs.next()) {
+			    	pw.println("<tr>");
+			    	pw.println("<td>" + rs.getInt(1) + "</td>");
+			    	pw.println("<td>" + rs.getString(2) + "</td>");
+			    	pw.println("<td>" + rs.getString(3) + "</td>");
+			    	pw.println("<td>" + rs.getString(4) + "</td>");
+			    	pw.println("<td>" + rs.getString(5) + "</td>");
+			    	pw.println("<td>" + rs.getString(6) + "</td>");
+			    	pw.println("</tr>");
+			   		}
+			    
+			 pw.println("</table>");	
+			 pw.println("</div>");
+	        
+	        
+	        
 	        String query = Query.update;
-			PreparedStatement preparedStatement = connection.prepareStatement(query);
+			preparedStatement = connection.prepareStatement(query);
 			
 			preparedStatement.setString(1, taskStatus);
 			preparedStatement.setInt(2, id);
@@ -61,7 +110,7 @@ public class update extends HttpServlet {
 				PreparedStatement ps = connection.prepareStatement(querySearch);
 				ps.setInt(1, id);
 				
-				ResultSet rs = ps.executeQuery();
+				rs = ps.executeQuery();
 				
 		 		pw.println("<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css\">\r\n"
 						+ "\r\n"
@@ -75,9 +124,10 @@ public class update extends HttpServlet {
 						+ "<script src=\"https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js\"></script>");
 				
 		        
-		 		pw.println("<a href=/webproject/index.html>Home</a>");
+		 		
 		 		
 		 		pw.println("<div style='width:600px;margin:auto;margin-top:50px'>");
+		 		pw.println("<h2 class='bg-primary text-center text-light card-header'>Updated Task Status</h2>");
 		   		pw.println("<table class='table table-hover table-striped'>");
 		   		pw.println("<tr>");
 		   		pw.println("<th>id</th>");
@@ -114,10 +164,11 @@ public class update extends HttpServlet {
 						+ "<!-- Latest compiled JavaScript -->\r\n"
 						+ "<script src=\"https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js\"></script>");
 				
-				request.getRequestDispatcher("update.html").include(request, response);
-				pw.println("<div style='width:600px;margin:auto;margin-top:50px'>");
+		 		pw.println("<div style='width:600px;margin:auto;margin-top:50px'>");
 				pw.println("<h5 class=\"bg-light text-left text-danger card-header\">ERROR: Invalid Task 'ID'</h5>");
 				pw.println("</div>");
+				request.getRequestDispatcher("update.html").include(request, response);
+
 			}
 			
 			connection.close();
