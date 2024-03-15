@@ -72,7 +72,7 @@ public class insert extends HttpServlet {
 	        
 	 		pw.println("<a href=/webproject/index.html>Home</a>");
 	 		
-	 		pw.println("<div style='width:600px;margin:auto;margin-top:50px'>");
+	 		pw.println("<div style='width:900px;margin:auto;margin-top:50px'>");
 	 		pw.println("<h2 class='bg-primary text-center text-light card-header'>New Inserted Data</h2>");
 	 		
 	   		pw.println("<table class='table table-hover table-striped'>");
